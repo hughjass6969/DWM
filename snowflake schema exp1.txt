@@ -1,0 +1,89 @@
+-- Dimension Table: Hotel
+CREATE TABLE Hotel (
+    HotelID INT PRIMARY KEY,
+    HotelName VARCHAR(100),
+    Rooms INT,
+    StarRating INT,
+    RegionID INT,
+    CityID INT,
+    Renovation_year INT,
+    FOREIGN KEY (RegionID) REFERENCES Region(RegionID),
+    FOREIGN KEY (CityID) REFERENCES City(CityID)
+);
+
+-- Dimension Table: Region
+CREATE TABLE Region (
+    RegionID INT PRIMARY KEY,
+    RegionName VARCHAR(100)
+);
+
+-- Dimension Table: City
+CREATE TABLE City (
+    CityID INT PRIMARY KEY,
+    CityName VARCHAR(100),
+    State VARCHAR(100),
+    Country VARCHAR(100)
+);
+
+-- Dimension Table: Room
+CREATE TABLE Room (
+    RoomID INT PRIMARY KEY,
+    RoomType VARCHAR(50),
+    Max_Occupant INT,
+    No_of_beds INT,
+    Room_side VARCHAR(50),
+    AC BIT
+);
+
+-- Dimension Table: Customer
+CREATE TABLE Customer (
+    CustomerID INT PRIMARY KEY,
+    CustomerName VARCHAR(100),
+    Address VARCHAR(200),
+    Type_of_stay VARCHAR(50),
+    Check_in DATE,
+    Check_out DATE,
+    Amount_paid DECIMAL(10, 2)
+);
+
+-- Dimension Table: Date (Normalized)
+CREATE TABLE Date (
+    DateID INT PRIMARY KEY,
+    Date DATE,
+    Day_of_week VARCHAR(20),
+    Day_of_month INT,
+    Week INT,
+    MonthID INT,
+    YearID INT,
+    Holiday BIT,
+    FOREIGN KEY (MonthID) REFERENCES Month(MonthID),
+    FOREIGN KEY (YearID) REFERENCES Year(YearID)
+);
+
+-- Dimension Table: Month
+CREATE TABLE Month (
+    MonthID INT PRIMARY KEY,
+    MonthName VARCHAR(20)
+);
+
+-- Dimension Table: Year
+CREATE TABLE Year (
+    YearID INT PRIMARY KEY,
+    Year INT
+);
+
+-- Fact Table: HotelOccupancy
+CREATE TABLE HotelOccupancy (
+    HotelID INT,
+    RoomID INT,
+    CustomerID INT,
+    DateID INT,
+    No_of_occupied_rooms INT,
+    No_of_vacant_rooms INT,
+    Revenue DECIMAL(10, 2),
+    PRIMARY KEY (HotelID, RoomID, CustomerID, DateID),
+    FOREIGN KEY (HotelID) REFERENCES Hotel(HotelID),
+    FOREIGN KEY (RoomID) REFERENCES Room(RoomID),
+    FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID),
+    FOREIGN KEY (DateID) REFERENCES Date(DateID)
+);

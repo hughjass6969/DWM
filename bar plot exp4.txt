@@ -1,0 +1,16 @@
+import matplotlib.pyplot as plt
+
+# Sample Data
+categories = ['A', 'B', 'C', 'D']
+values = [3, 7, 2, 5]
+
+# Create a Bar Plot
+plt.bar(categories, values, color='green')
+
+# Add Labels and Title
+plt.xlabel('Categories')
+plt.ylabel('Values')
+plt.title('Bar Plot Example')
+
+# Show the plot
+plt.show()

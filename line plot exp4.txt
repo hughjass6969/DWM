@@ -1,0 +1,19 @@
+import matplotlib.pyplot as plt
+
+# Sample Data
+x = [1, 2, 3, 4, 5]
+y = [2, 3, 5, 7, 11]
+
+# Create a Line Plot
+plt.plot(x, y, label='Prime Numbers', color='blue', linewidth=2)
+
+# Add Labels and Title
+plt.xlabel('X-Axis')
+plt.ylabel('Y-Axis')
+plt.title('Line Plot Example')
+
+# Add Legend
+plt.legend()
+
+# Show the plot
+plt.show()

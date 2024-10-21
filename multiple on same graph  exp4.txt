@@ -1,0 +1,19 @@
+import matplotlib.pyplot as plt
+
+# Sample Data
+x = [1, 2, 3, 4, 5]
+y1 = [1, 4, 9, 16, 25]
+y2 = [1, 2, 3, 4, 5]
+
+# Create Multiple Plots
+plt.plot(x, y1, label='Square', color='blue', linewidth=2)
+plt.plot(x, y2, label='Linear', color='green', linewidth=2)
+
+# Add Labels, Title, and Legend
+plt.xlabel('X-Axis')
+plt.ylabel('Y-Axis')
+plt.title('Multiple Line Plot Example')
+plt.legend()
+
+# Show the plot
+plt.show()

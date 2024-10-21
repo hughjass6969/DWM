@@ -1,0 +1,61 @@
+-- Dimension Table: Hotel
+CREATE TABLE Hotel (
+    HotelID INT PRIMARY KEY,
+    HotelName VARCHAR(100),
+    Rooms INT,
+    StarRating INT,
+    Region VARCHAR(100),
+    City VARCHAR(100),
+    State VARCHAR(100),
+    Country VARCHAR(100),
+    Renovation_year INT
+);
+
+-- Dimension Table: Room
+CREATE TABLE Room (
+    RoomID INT PRIMARY KEY,
+    RoomType VARCHAR(50),
+    Max_Occupant INT,
+    No_of_beds INT,
+    Room_side VARCHAR(50),
+    AC BIT
+);
+
+-- Dimension Table: Customer
+CREATE TABLE Customer (
+    CustomerID INT PRIMARY KEY,
+    CustomerName VARCHAR(100),
+    Address VARCHAR(200),
+    Type_of_stay VARCHAR(50),
+    Check_in DATE,
+    Check_out DATE,
+    Amount_paid DECIMAL(10, 2)
+);
+
+-- Dimension Table: Time
+CREATE TABLE Time (
+    DateID INT PRIMARY KEY,
+    Date DATE,
+    Day_of_week VARCHAR(20),
+    Day_of_month INT,
+    Week INT,
+    Month INT,
+    Year INT,
+    Holiday BIT
+);
+
+-- Fact Table: HotelOccupancy
+CREATE TABLE HotelOccupancy (
+    HotelID INT,
+    RoomID INT,
+    CustomerID INT,
+    DateID INT,
+    No_of_occupied_rooms INT,
+    No_of_vacant_rooms INT,
+    Revenue DECIMAL(10, 2),
+    PRIMARY KEY (HotelID, RoomID, CustomerID, DateID),
+    FOREIGN KEY (HotelID) REFERENCES Hotel(HotelID),
+    FOREIGN KEY (RoomID) REFERENCES Room(RoomID),
+    FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID),
+    FOREIGN KEY (DateID) REFERENCES Time(DateID)
+);

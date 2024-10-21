@@ -1,0 +1,3 @@
+USE MySQL;
+UPDATE MySQL.user SET Password = PASSWORD('admin') WHERE User = 'root';
+FLUSH PRIVILAGES;

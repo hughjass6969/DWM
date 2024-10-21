@@ -1,0 +1,15 @@
+import matplotlib.pyplot as plt
+
+# Sample Data
+data = [1, 1, 2, 3, 3, 3, 4, 4, 5, 6, 6, 7, 8, 8, 9]
+
+# Create a Histogram
+plt.hist(data, bins=5, color='purple')
+
+# Add Labels and Title
+plt.xlabel('Values')
+plt.ylabel('Frequency')
+plt.title('Histogram Example')
+
+# Show the plot
+plt.show()
