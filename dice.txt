@@ -1,0 +1,4 @@
+-- Dice: Get data for HotelID = 1 and RoomType 'Suite' and DateID = 1
+SELECT * FROM HotelOccupancy
+JOIN Room ON HotelOccupancy.RoomID = Room.RoomID
+WHERE HotelOccupancy.HotelID = 1 AND Room.RoomType = 'Suite' AND HotelOccupancy.DateID = 1;
