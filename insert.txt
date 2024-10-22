@@ -1,0 +1,44 @@
+-- Insert data into Region
+INSERT INTO Region (RegionID, RegionName) VALUES
+(1, 'North America'),
+(2, 'Europe');
+
+-- Insert data into City
+INSERT INTO City (CityID, CityName, State, Country) VALUES
+(1, 'New York', 'NY', 'USA'),
+(2, 'Paris', 'Ile-de-France', 'France');
+
+-- Insert data into Hotel
+INSERT INTO Hotel (HotelID, HotelName, Rooms, StarRating, RegionID, CityID, Renovation_year) VALUES
+(1, 'Grand Hotel', 100, 5, 1, 1, 2015),
+(2, 'Luxe Paris', 80, 4, 2, 2, 2018);
+
+-- Insert data into Room
+INSERT INTO Room (RoomID, RoomType, Max_Occupant, No_of_beds, Room_side, AC) VALUES
+(1, 'Suite', 4, 2, 'Sea View', 1),
+(2, 'Standard', 2, 1, 'City View', 1);
+
+-- Insert data into Customer
+INSERT INTO Customer (CustomerID, CustomerName, Address, Type_of_stay, Check_in, Check_out, Amount_paid) VALUES
+(1, 'John Doe', '123 Main St', 'Business', '2024-10-10', '2024-10-15', 1200.00),
+(2, 'Jane Smith', '456 Elm St', 'Vacation', '2024-11-01', '2024-11-07', 1500.00);
+
+-- Insert data into Month
+INSERT INTO Month (MonthID, MonthName) VALUES
+(1, 'January'),
+(10, 'October'),
+(11, 'November');
+
+-- Insert data into Year
+INSERT INTO Year (YearID, Year) VALUES
+(2024, 2024);
+
+-- Insert data into Date
+INSERT INTO Date (DateID, Date, Day_of_week, Day_of_month, Week, MonthID, YearID, Holiday) VALUES
+(1, '2024-10-10', 'Thursday', 10, 41, 10, 2024, 0),
+(2, '2024-11-01', 'Friday', 1, 44, 11, 2024, 0);
+
+-- Insert data into HotelOccupancy
+INSERT INTO HotelOccupancy (HotelID, RoomID, CustomerID, DateID, No_of_occupied_rooms, No_of_vacant_rooms, Revenue) VALUES
+(1, 1, 1, 1, 1, 99, 1200.00),
+(2, 2, 2, 2, 1, 79, 1500.00);
