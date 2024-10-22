@@ -1,0 +1,7 @@
+-- Pivot: Revenue comparison by RoomType
+SELECT Room.RoomType,
+    SUM(CASE WHEN HotelOccupancy.HotelID = 1 THEN Revenue ELSE 0 END) AS 'Grand Hotel Revenue',
+    SUM(CASE WHEN HotelOccupancy.HotelID = 2 THEN Revenue ELSE 0 END) AS 'Luxe Paris Revenue'
+FROM HotelOccupancy
+JOIN Room ON HotelOccupancy.RoomID = Room.RoomID
+GROUP BY Room.RoomType;
