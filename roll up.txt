@@ -1,0 +1,11 @@
+-- Roll Up: Total revenue by HotelID
+SELECT HotelID, SUM(Revenue) AS TotalRevenue
+FROM HotelOccupancy
+GROUP BY HotelID;
+
+-- Roll Up: Total rooms occupied by Region
+SELECT Region.RegionName, SUM(HotelOccupancy.No_of_occupied_rooms) AS TotalOccupiedRooms
+FROM HotelOccupancy
+JOIN Hotel ON HotelOccupancy.HotelID = Hotel.HotelID
+JOIN Region ON Hotel.RegionID = Region.RegionID
+GROUP BY Region.RegionName;
