@@ -1,0 +1,6 @@
+-- Drill Down: Show occupancy by City
+SELECT City.CityName, SUM(HotelOccupancy.No_of_occupied_rooms) AS TotalOccupiedRooms
+FROM HotelOccupancy
+JOIN Hotel ON HotelOccupancy.HotelID = Hotel.HotelID
+JOIN City ON Hotel.CityID = City.CityID
+GROUP BY City.CityName;
