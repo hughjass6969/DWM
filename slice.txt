@@ -1,0 +1,7 @@
+-- Slice: Get occupancy data for HotelID = 1
+SELECT * FROM HotelOccupancy WHERE HotelID = 1;
+
+-- Slice: Get data for the month of November (MonthID = 11)
+SELECT * FROM HotelOccupancy
+JOIN Date ON HotelOccupancy.DateID = Date.DateID
+WHERE Date.MonthID = 11;
